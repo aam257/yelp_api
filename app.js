@@ -15,15 +15,10 @@ client
   })
   .then((response) => {
     businessesData = [...response.jsonBody.businesses];
-    // console.log(businessesData[0]);
-
     // Adding street and city
     businessesData.map(async (ele) => {
-      await addr(ele);
-
       // Reviews for each parlor
       let arrReview = await review(ele);
-      // console.log(arrReview);
       arrReview.map((rev) => {
         console.log("Name of Place: " + ele.name);
         console.log(ele.location.address1);
@@ -39,27 +34,12 @@ client
     console.log(e);
   });
 
-async function addr(business) {
-  let newBusi;
-  await client
-    .business(business.alias)
-    .then((response) => {
-      newBusi = response.jsonBody;
-      return newBusi;
-    })
-    .catch((e) => {
-      console.log(e);
-    });
-}
-
 const review = async (business) => {
   let newBus = [];
-  // console.log(business);
   await client
     .reviews(business.alias)
     .then((response) => {
       newBus = response.jsonBody.reviews;
-      // console.log(business.alias, newBus);
     })
     .catch((e) => {
       console.log(e);
