@@ -25,7 +25,10 @@ client
       console.log(ele.location.city);
       // Reviews for each parlor
       let arrReview = await review(ele);
-      console.log(arrReview);
+      arrReview.forEach((rev) => {
+        console.log("User Name: " + rev.user.name);
+        console.log("Review: " + rev.text);
+      });
     });
   })
   .catch((e) => {
