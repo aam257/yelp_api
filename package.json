@@ -1,0 +1,16 @@
+{
+  "name": "yelp_ice_cream_shop_finder",
+  "version": "1.0.0",
+  "description": "yelp api assignment ",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Aniket Mirajkar",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "yelp-fusion": "^3.0.0"
+  }
+}
